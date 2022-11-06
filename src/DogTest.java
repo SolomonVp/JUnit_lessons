@@ -1,16 +1,29 @@
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DogTest {
 
+    static Dog dog;
+
+    @BeforeAll
+    static void prepareData() {
+        dog = new Dog("Albert", 2);
+    }
+
+//    @BeforeEach
+//    void prepareData() {
+//        dog = new Dog("Albert", 2);
+//    }
+
     @org.junit.jupiter.api.Test
-    void getName() {
-        Dog dog = new Dog("Albert", 2);
+    void testGetDogNameMethod() {
         assertEquals("Albert", dog.getName());
     }
 
     @org.junit.jupiter.api.Test
     void testSetDogNameMethod() {
-        Dog dog = new Dog("Albert", 2);
         dog.setName("Roman");
         assertEquals("Albert", dog.getName());
     }
